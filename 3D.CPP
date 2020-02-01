@@ -7,7 +7,7 @@
 */
 
 #include <graphics.h>
-#include <iostream>
+#include <iostream.h>
 #include <conio.h>
 #include <math.h>
 
@@ -16,7 +16,7 @@
 #define LEFT  75
 #define RIGHT 77
 
-#define Size 10		// Settings	
+#define Size 10		// Settings
 #define FOV  90		//in Degrees
 
 void Initialize();
@@ -26,7 +26,7 @@ int  ny( int, int );
 
 int main()
 {
-	system( "cls" );
+	clrscr();
 	Initialize();
 	Field();
 	closegraph();
@@ -36,7 +36,7 @@ int main()
 void Initialize()
 {
 	int gd = 0, gm;
-	initgraph( &gd, &gm, "" );
+	initgraph( &gd, &gm, "C:\\TurboC3\\BGI" );
 	setbkcolor( BLACK );
 	setcolor( WHITE );
 }
