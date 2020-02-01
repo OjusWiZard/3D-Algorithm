@@ -26,66 +26,66 @@ int  ny( int, int );
 
 int main()
 {
- system("cls");
- Initialize();
- Field();
- closegraph();
- return 0;
+	system( "cls" );
+	Initialize();
+	Field();
+	closegraph();
+	return 0;
 }
 
 void Initialize()
 {
- int gd=0, gm;
- initgraph( &gd , &gm , "" );
- setbkcolor( BLACK );
- setcolor  ( WHITE );
+	int gd = 0, gm;
+	initgraph( &gd, &gm, "" );
+	setbkcolor( BLACK );
+	setcolor( WHITE );
 }
 
 void Field()
 {
- int cx, cy, cz=100, s=Size/2, in;
- while( in!=27 )		//27 = Esc
+	int cx, cy, cz = 100, s = Size/2, in;
+	while( in!=27 )		//27 = Esc
 	{
-	 cleardevice();
+		cleardevice();
 
-	 line( nx(cx-s,cz-s) , ny(cy-s,cz-s) , nx(cx-s,cz+s) , ny(cy-s,cz+s) );	//Draws all four lines parallel to z-axis
-	 line( nx(cx-s,cz-s) , ny(cy+s,cz-s) , nx(cx-s,cz+s) , ny(cy+s,cz+s) );
-	 line( nx(cx+s,cz-s) , ny(cy-s,cz-s) , nx(cx+s,cz+s) , ny(cy-s,cz+s) );
-	 line( nx(cx+s,cz-s) , ny(cy+s,cz-s) , nx(cx+s,cz+s) , ny(cy+s,cz+s) );
+		line( nx( cx-s, cz-s ), ny( cy-s, cz-s ), nx( cx-s, cz+s ), ny( cy-s, cz+s ) );	//Draws all four lines parallel to z-axis
+		line( nx( cx-s, cz-s ), ny( cy+s, cz-s ), nx( cx-s, cz+s ), ny( cy+s, cz+s ) );
+		line( nx( cx+s, cz-s ), ny( cy-s, cz-s ), nx( cx+s, cz+s ), ny( cy-s, cz+s ) );
+		line( nx( cx+s, cz-s ), ny( cy+s, cz-s ), nx( cx+s, cz+s ), ny( cy+s, cz+s ) );
 
-	 line( nx(cx-s,cz-s) , ny(cy-s,cz-s) , nx(cx-s,cz-s) , ny(cy+s,cz-s) );	//Draws the square which is towards you
-	 line( nx(cx-s,cz-s) , ny(cy-s,cz-s) , nx(cx+s,cz-s) , ny(cy-s,cz-s) );
-	 line( nx(cx+s,cz-s) , ny(cy+s,cz-s) , nx(cx+s,cz-s) , ny(cy-s,cz-s) );
-	 line( nx(cx+s,cz-s) , ny(cy+s,cz-s) , nx(cx-s,cz-s) , ny(cy+s,cz-s) );
+		line( nx( cx-s, cz-s ), ny( cy-s, cz-s ), nx( cx-s, cz-s ), ny( cy+s, cz-s ) );	//Draws the square which is towards you
+		line( nx( cx-s, cz-s ), ny( cy-s, cz-s ), nx( cx+s, cz-s ), ny( cy-s, cz-s ) );
+		line( nx( cx+s, cz-s ), ny( cy+s, cz-s ), nx( cx+s, cz-s ), ny( cy-s, cz-s ) );
+		line( nx( cx+s, cz-s ), ny( cy+s, cz-s ), nx( cx-s, cz-s ), ny( cy+s, cz-s ) );
 
-	 line( nx(cx-s,cz+s) , ny(cy-s,cz+s) , nx(cx-s,cz+s) , ny(cy+s,cz+s) );	//Draws the square which is away from you
-	 line( nx(cx-s,cz+s) , ny(cy-s,cz+s) , nx(cx+s,cz+s) , ny(cy-s,cz+s) );
-	 line( nx(cx+s,cz+s) , ny(cy+s,cz+s) , nx(cx+s,cz+s) , ny(cy-s,cz+s) );
-	 line( nx(cx+s,cz+s) , ny(cy+s,cz+s) , nx(cx-s,cz+s) , ny(cy+s,cz+s) );
+		line( nx( cx-s, cz+s ), ny( cy-s, cz+s ), nx( cx-s, cz+s ), ny( cy+s, cz+s ) );	//Draws the square which is away from you
+		line( nx( cx-s, cz+s ), ny( cy-s, cz+s ), nx( cx+s, cz+s ), ny( cy-s, cz+s ) );
+		line( nx( cx+s, cz+s ), ny( cy+s, cz+s ), nx( cx+s, cz+s ), ny( cy-s, cz+s ) );
+		line( nx( cx+s, cz+s ), ny( cy+s, cz+s ), nx( cx-s, cz+s ), ny( cy+s, cz+s ) );
 
-	 in = getch();
-	 switch( in )	//if statements don't let it go out of your view
-		 {
-		  case UP		: if(ny((cy-1)-s,cz-s)>1									   ) cy--;	break;
-		  case DOWN		: if(ny((cy+1)+s,cz-s)<getmaxy()							   ) cy++;	break;
-		  case LEFT		: if(nx((cx-1)-s,cz-s)>1									   ) cx--;	break;
-		  case RIGHT	: if(nx((cx+1)+s,cz-s)<getmaxx()							   ) cx++;	break;
-		  case 's'   	: if(nx(cx-s,(cz-1)-s)>1 		 && ny(cy-s,(cz-1)-s)>1  	 &&
-							 nx(cx+s,(cz-1)-s)<getmaxx() && ny(cy+s,(cz-1)-s)<getmaxy()) cz--;	break;
-		  case 'w'		: 																 cz++;	break;
-		  default    	: 	  																	break;
-		 }
+		in = getch();
+		switch( in )	//if statements don't let it go out of your view
+		{
+			case UP: if( ny( ( cy-1 )-s, cz-s )>1 ) cy--;	break;
+			case DOWN: if( ny( ( cy+1 )+s, cz-s )<getmaxy() ) cy++;	break;
+			case LEFT: if( nx( ( cx-1 )-s, cz-s )>1 ) cx--;	break;
+			case RIGHT: if( nx( ( cx+1 )+s, cz-s )<getmaxx() ) cx++;	break;
+			case 's': if( nx( cx-s, ( cz-1 )-s )>1&&ny( cy-s, ( cz-1 )-s )>1&&
+						  nx( cx+s, ( cz-1 )-s )<getmaxx()&&ny( cy+s, ( cz-1 )-s )<getmaxy() ) cz--;	break;
+			case 'w': 																 cz++;	break;
+			default: 	  																	break;
+		}
 	}
 }
 
 int nx( int l, int n )
 {
- return l*getmaxx()/(n*tan(M_PI*FOV/360)) + getmaxx()/2;	//The biggest obstacle-formula to derive(for me specially)
+	return l*getmaxx()/( n*tan( M_PI*FOV/360 ) )+getmaxx()/2;	//The biggest obstacle-formula to derive(for me specially)
 }
 
 int ny( int m, int n )
 {
- return m*getmaxx()/(n*tan(M_PI*FOV/360)) + getmaxy()/2;	//Unfortunately, I can't explain this without any diagram.
+	return m*getmaxx()/( n*tan( M_PI*FOV/360 ) )+getmaxy()/2;	//Unfortunately, I can't explain this without any diagram.
 }
 
 /*
